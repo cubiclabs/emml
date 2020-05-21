@@ -1,0 +1,90 @@
+<em-eml>
+
+	<em-head>
+		<em-attributes>
+			<em-button
+				background-color="#f45e43"
+				color="white"
+				href="https://www.cubicstate.com" />
+		</em-attributes>
+	</em-head>
+
+	<em-body>
+
+		<em-row>
+			<em-column>
+				<em-button
+					font-size="22px"
+					font-style="italic"
+					font-weight="bold"
+					text-transform="uppercase">
+					font settings
+				</em-button>
+			</em-column>
+			<em-column>
+				<em-button
+					border-radius="50px">
+					border-radius
+				</em-button>
+			</em-column>
+		</em-row>
+
+		<em-row>
+			<em-column>
+				<em-button
+					color="black"
+					align="right">
+					align right
+				</em-button>
+			</em-column>
+			<em-column>
+				<em-button
+					color="black"
+					align="left">
+					align left
+				</em-button>
+			</em-column>
+		</em-row>
+
+		<em-row>
+			<em-column>
+				<em-button
+					border="2px solid green">
+					solid border
+				</em-button>
+			</em-column>
+			<em-column>
+				<em-button
+					border="2px dashed green">
+					dashed border
+				</em-button>
+			</em-column>
+		</em-row>
+
+		<em-row>
+			<em-column background-color="yellow">
+				<em-button
+					padding="35px 10px"
+					inner-padding="30px 60px">
+					padding - inner & outer
+				</em-button>
+			</em-column>
+		</em-row>
+
+		<em-row>
+			<em-column align="center" background-color="green">
+				<em-button
+					inline="true"
+					padding="5px">
+					inline 1
+				</em-button>
+				<em-button
+					inline="true"
+					padding="5px">
+					inline 2
+				</em-button>
+			</em-column>
+		</em-row>
+
+	</em-body>
+</em-eml>

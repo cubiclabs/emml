@@ -1,0 +1,86 @@
+<em-eml>
+	<em-body>
+
+		<em-row>
+			<em-column background-color="#F45E43">
+				<em-text color="#ffffff">
+					Responsive column 1
+				</em-text>
+			</em-column>
+			<em-column background-color="#4381f4">
+				<em-text color="#ffffff">
+					Responsive column 2
+				</em-text>
+			</em-column>
+			<em-column background-color="#3cbc67">
+				<em-text color="#ffffff">
+					Responsive column 3
+				</em-text>
+			</em-column>
+		</em-row>
+
+
+		<em-row>
+			<em-column
+				background-color="#F45E43"
+				fluid="false">
+				<em-text color="#ffffff">
+					Fixed column 1
+				</em-text>
+			</em-column>
+
+			<em-column
+				background-color="#4381f4"
+				fluid="false">
+				<em-text color="#ffffff">
+					Fixed column 2
+				</em-text>
+			</em-column>
+		</em-row>
+
+		<em-row>
+			<em-column
+				background-color="#F45E43"
+				width="60%"
+				fluid="false">
+				<em-text color="#ffffff">
+					Fixed column & width 60%
+				</em-text>
+			</em-column>
+			<em-column
+				background-color="#4381f4"
+				width="40%"
+				fluid="false">
+				<em-text color="#ffffff">
+					Fixed column & width 40%<br />
+					Sibling parent cells should ideally be an even height.
+				</em-text>
+			</em-column>
+		</em-row>
+
+		<em-row>
+			<em-column
+				background-color="#F45E43"
+				inner-background-color="black"
+				inner-padding="10px"
+				padding="20px"
+				vertical-align="top">
+				<em-text color="#ffffff">
+					Inner padding with vertical align
+				</em-text>
+			</em-column>
+			<em-column
+				background-color="#4381f4"
+				inner-background-color="black"
+				inner-padding="10px"
+				padding="20px"
+				border-radius="20px">
+				<em-text color="#ffffff">
+					Inner padding and border radius.
+					Sibling parent cells should ideally be an even height.
+				</em-text>
+			</em-column>
+		</em-row>
+
+	</em-body>
+</em-eml>

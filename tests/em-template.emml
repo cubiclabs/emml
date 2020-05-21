@@ -1,0 +1,63 @@
+<em-eml>
+	<em-head>
+		<em-title>Email title here</em-title>
+		<em-preview>Preview text here</em-preview>
+		<em-attributes>
+			<em-template name="dataCell"
+				padding="10px"
+				border="1px solid black" />
+			<em-template name="dataHeaderCell"
+				padding="10px"
+				border="1px solid black"
+				width="80px"
+				background-color="#dddddd" />
+			<em-template name="dataHeaderText"
+				align="right"
+				padding="0"
+				font-weight="bold" />
+			<em-template name="dataText"
+				padding="0" />
+		</em-attributes>
+		<em-style inline="true">
+			p{
+				margin: 0 0 13px 0;
+				padding: 0;
+			}
+		</em-style>
+	</em-head>
+	<em-body>
+		<em-section>
+			<em-table>
+				<tr>
+					<em-td template="dataHeaderCell" width="" colspan="2">
+						<em-text template="dataHeaderText" align="center">Data Table</em-text>
+					</em-td>
+				</tr>
+				<tr>
+					<em-td template="dataHeaderCell">
+						<em-text template="dataHeaderText">Date</em-text>
+					</em-td>
+					<em-td template="dataCell">
+						<em-text template="dataText">22/04/20</em-text>
+					</em-td>
+				</tr>
+				<tr>
+					<em-td template="dataHeaderCell">
+						<em-text template="dataHeaderText">Name</em-text>
+					</em-td>
+					<em-td template="dataCell">
+						<em-text template="dataText">Martin</em-text>
+					</em-td>
+				</tr>
+				<tr>
+					<em-td template="dataHeaderCell">
+						<em-text template="dataHeaderText">Age</em-text>
+					</em-td>
+					<em-td template="dataCell">
+						<em-text template="dataText">Getting older</em-text>
+					</em-td>
+				</tr>
+			</em-table>
+		</em-section>
+	</em-body>
+</em-eml>

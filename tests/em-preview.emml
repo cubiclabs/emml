@@ -1,0 +1,14 @@
+<em-eml>
+    <em-head>
+        <em-preview>Preview text in here</em-preview>
+    </em-head>
+    <em-body>
+
+        <em-section>
+            <em-text>
+                Hidden preview text is included in this email. Check how email clients detect and display it.
+            </em-text>
+        </em-section>
+
+    </em-body>
+</em-eml>

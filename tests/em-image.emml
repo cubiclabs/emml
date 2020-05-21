@@ -1,0 +1,83 @@
+<em-eml>
+
+    <em-head>
+        <em-attributes>
+            <em-image
+                src="https://www.cubicstate.com/images/holding/logo.gif"
+                alt="test image" />
+        </em-attributes>
+    </em-head>
+
+    <em-body>
+
+        <em-row>
+            <em-column background-color="#dddddd">
+                <em-text align="center">
+                    Centered by default
+                </em-text>
+                <em-image />
+            </em-column>
+        </em-row>
+        
+        <em-row>
+            <em-column background-color="#dddddd">
+                <em-text align="center">
+                    Full width
+                </em-text>
+                <em-image full-width="full-width" />
+            </em-column>
+        </em-row>
+
+        <em-row>
+            <em-column background-color="#eeeeee">
+                <em-text>
+                    Right aligned with href, padding and background colour.
+                </em-text>
+                <em-image
+                    align="right"
+                    background-color="red"
+                    padding="10px"
+                    href="https://www.cubicstate.com" />
+            </em-column>
+            <em-column background-color="#dddddd">
+                <em-text>
+                    Left aligned
+                </em-text>
+                <em-image align="left" />
+            </em-column>
+        </em-row>
+
+        <em-row>
+            <em-column background-color="#eeeeee">
+                <em-text>
+                    Right aligned with a text block with text wrapping the image
+                </em-text>
+                <em-text>
+                    <em-image align="right" />
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget mi condimentum lorem venenatis iaculis sagittis ut tellus. Aliquam erat volutpat. Sed commodo augue a sagittis sagittis. Quisque nunc tellus, pharetra vel purus eu, molestie elementum ligula. Fusce id quam eu dui volutpat posuere. Nunc euismod sed metus eu mattis. Sed scelerisque massa augue, luctus cursus arcu fermentum sed. Aliquam erat volutpat.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget mi condimentum lorem venenatis iaculis sagittis ut tellus. Aliquam erat volutpat. Sed commodo augue a sagittis sagittis. Quisque nunc tellus, pharetra vel purus eu, molestie elementum ligula. Fusce id quam eu dui volutpat posuere. Nunc euismod sed metus eu mattis. Sed scelerisque massa augue, luctus cursus arcu fermentum sed. Aliquam erat volutpat.
+                    </p>
+                </em-text>
+            </em-column>
+        </em-row>
+
+        <em-row>
+            <em-column background-color="#eeeeee">
+                <em-text>
+                    Border
+                </em-text>
+                <em-image border="2px solid orange" />
+            </em-column>
+            <em-column background-color="#dddddd">
+                <em-text>
+                    Fixed size in proportion
+                </em-text>
+                <em-image width="100px" />
+            </em-column>
+        </em-row>
+
+    </em-body>
+</em-eml>

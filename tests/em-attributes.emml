@@ -1,0 +1,27 @@
+<em-eml>
+    <em-head>
+        <em-attributes>
+            <em-section background-color="red" />
+            <em-all background-color="orange" />
+        </em-attributes>
+    </em-head>
+    <em-body>
+
+        <em-section>
+            <em-text>
+                Background set in head attributes
+            </em-text>
+        </em-section>
+
+        <em-section background-color="green">
+            <em-text>
+                Background set inline
+            </em-text>
+        </em-section>
+
+        <em-text>
+            Body background set using em-all attribute in head
+        </em-text>
+
+    </em-body>
+</em-eml>

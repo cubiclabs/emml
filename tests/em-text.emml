@@ -1,0 +1,71 @@
+<em-eml>
+    <em-head>
+        <em-attributes>
+            <em-text
+                font-size="16px" 
+                line-height="1.3" />
+        </em-attributes>
+        <em-style inline="true">
+            p{
+                margin: 0;
+                padding: 0 0 16px 0;
+            }
+        </em-style>
+    </em-head>
+    <em-body>
+
+        <em-section>
+            <em-text 
+                color="red" 
+                font-family="Trebuchet, serif" 
+                font-style="italic" 
+                text-decoration="underline" 
+                align="center"
+                font-size="26px"
+                font-weight="bold">
+                    Text Styling
+            </em-text>
+        </em-section>
+
+        <em-section background-color="#dddddd">
+            <em-text 
+                color="#444444" 
+                line-height="18px" 
+                align="right">
+                <p>
+                    Aligned right with padding and line-height. Inlined style applied to &lt;p&gt; tags.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet hendrerit vulputate. Cras non libero ac neque ultrices faucibus. Fusce vulputate sapien sollicitudin dolor ullamcorper fermentum. Phasellus ut ipsum diam. In accumsan feugiat elit sed molestie. Proin quis viverra erat, at euismod ligula. Etiam tincidunt dui at libero blandit, at accumsan nunc auctor. Mauris in efficitur lectus, ut imperdiet libero. Fusce neque augue, iaculis ac metus cursus, hendrerit porta sem. Nullam vehicula ipsum sit amet dictum facilisis. In congue quis odio quis interdum. Suspendisse a lorem id mi efficitur lobortis. Nam eu neque sed sem blandit consequat nec vitae lectus. In ornare eget mauris ut vulputate.
+                </p>
+            </em-text>
+        </em-section>
+
+        <em-section background-color="#bbbbbb">
+            <em-text 
+                align="center"
+                color="#222222" 
+                font-weight="500" 
+                text-transform="capitalize">
+                <p>
+                    Centred with a font weight and 'capitalize' text-transform.
+                </p>
+                <p>
+                    Praesent interdum sem ac euismod tempor. Vestibulum porttitor metus a diam maximus, in gravida mi ullamcorper. Suspendisse porttitor nulla id mauris imperdiet vehicula. Mauris accumsan, dui eu auctor varius, urna nulla mollis mauris, eget rhoncus est ante vitae ex. Pellentesque at neque et odio egestas malesuada. Nam id nunc vitae elit malesuada auctor. Morbi fringilla, dolor vel gravida dictum, risus ex scelerisque quam, et tincidunt ipsum mauris eu orci. Donec finibus mollis dui at vulputate. Pellentesque euismod purus et odio dictum semper.
+                </p>
+            </em-text>
+        </em-section>
+
+        <em-section background-color="#999999">
+            <em-text 
+                color="#000000"
+                font-weight="bold" 
+                line-height="35px">
+                <p>
+                    Donec pretium odio magna, vitae iaculis libero ullamcorper et. Duis dapibus, odio in congue efficitur, ipsum elit egestas sapien, a fermentum lacus lorem nec risus. Pellentesque a tincidunt libero. Suspendisse metus orci, viverra in ligula ut, condimentum eleifend ante. Integer id tempus ipsum. Donec luctus venenatis ante, sit amet feugiat erat bibendum eget. Nulla ac ex quis justo commodo vulputate. Pellentesque suscipit sollicitudin turpis vel faucibus. Nullam ut nisi et turpis condimentum porttitor quis vitae libero. Suspendisse non blandit ante. Fusce in consectetur elit. Nulla vitae erat sed lorem suscipit tincidunt in non odio. Nam finibus ultricies tellus, ut imperdiet nunc posuere sit amet. Donec sit amet blandit quam, nec aliquam purus. Ut lacinia vulputate nunc id lacinia. Nam egestas leo sed tortor vehicula, vel commodo justo lobortis.
+                </p>
+            </em-text>
+        </em-section>
+
+    </em-body>
+</em-eml>
