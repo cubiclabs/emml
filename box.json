@@ -1,0 +1,35 @@
+{
+    "name":"emml",
+    "version":"1.0.0",
+    "location":"cubiclabs/emml",
+    "author":"CUBICstate <studio@cubicstate.com>",
+    "contributors":[
+        "Martin Webb <martin@cubicstate.com>"
+    ],
+    "bugs":"https://github.com/cubiclabs/emml/issues",
+    "documentation":"https://github.com/cubiclabs/emml/wiki",
+    "homepage": "https://github.com/cubiclabs/emml",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/cubiclabs/emml"
+    },
+    "ignore":[
+        "**/.*",
+        "/test/",
+        "/tests/",
+        "/docs/"
+    ],
+    "keywords":["email"],
+    "license":[
+        {
+            "type":"Apache2",
+            "url":"http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    ],
+    "engines" : [
+        { "type" : "lucee", "version" : ">=4.5" }
+    ],
+    "shortDescription":"An email templating system to make it easy to craft great looking responsive emails quickly,",
+    "slug":"emml",
+    "type":"modules"
+}
