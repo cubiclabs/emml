@@ -3,6 +3,8 @@
         <em-attributes>
             <em-section background-color="red" />
             <em-all background-color="orange" />
+            <em-class name="redText" color="red" />
+            <em-class name="bigText" font-size="32px" />
         </em-attributes>
     </em-head>
     <em-body>
@@ -14,8 +16,8 @@
         </em-section>
 
         <em-section background-color="green">
-            <em-text>
-                Background set inline
+            <em-text class="bigText redText">
+                Background set inline and text with multiple attribute classes
             </em-text>
         </em-section>
 

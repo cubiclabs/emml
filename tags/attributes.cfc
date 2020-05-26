@@ -12,7 +12,7 @@ component extends="tag"{
 
 				local.tagName = this.tagName(local.child.xmlName);
 
-				if(local.tagName == "template"){
+				if(local.tagName == "class"){
 					
 					local.templateArgs = local.child.xmlAttributes;
 

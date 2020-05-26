@@ -16,8 +16,11 @@ component{
 		variables._attributes = arguments.attributes;
 		variables._childContent = arguments.childContent;
 
-		if(len(getAttribute("template"))){
-			structAppend(variables._attributes, getAttributeTemplate(getAttribute("template")), false);
+		if(len(getAttribute("class"))){
+			local.splitClass = listToArray(getAttribute("class"), " ");
+			for(local.className in local.splitClass){
+				structAppend(variables._attributes, getAttributeTemplate(trim(local.className)), false);
+			}
 		}
 
 		return this;

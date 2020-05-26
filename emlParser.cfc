@@ -595,17 +595,17 @@ component{
 			}
 		}
 
-		// create template tag
+		// create class tag
 		local.allAttr = ["name"];
 		for(local.tag in local.tags){
 			for(local.attr in local.tags[local.tag]){
-				if(!arrayFindNoCase(local.allAttr, local.attr) AND local.attr != "template"){
+				if(!arrayFindNoCase(local.allAttr, local.attr) AND local.attr != "class"){
 					arrayAppend(local.allAttr, local.attr);
 				}
 			}
 		}
 		arraySort(local.allAttr, "text");
-		local.tags["em-template"] = local.allAttr;
+		local.tags["em-class"] = local.allAttr;
 
 		// return tag insights
 		return local.tags;
@@ -777,7 +777,8 @@ component{
 			local.regResult = REFindNoCase(arguments.regEx, arguments.input, local.searchFrom, true);
 
 			if(local.regResult.POS[1]){
-				arrayApepnd(local.out, duplicate(local.regResult));
+				arrayAppend(local.out, duplicate(local.regResult));
+				local.searchFrom = local.regResult.POS[1] + 1;
 			}else{
 				local.searchComplete = true; // no matches, break our conditional loop
 			}
