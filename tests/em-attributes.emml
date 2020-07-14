@@ -3,6 +3,7 @@
         <em-attributes>
             <em-section background-color="red" />
             <em-all background-color="orange" />
+            <em-class name="greenBackground" background-color="green" />
             <em-class name="redText" color="red" />
             <em-class name="bigText" font-size="32px" />
         </em-attributes>
@@ -11,13 +12,15 @@
 
         <em-section>
             <em-text>
-                Background set in head attributes
+                em-section background set in head attributes - red<br />
+                em-text will inherit orange from el-all.
             </em-text>
         </em-section>
 
         <em-section background-color="green">
-            <em-text class="bigText redText">
-                Background set inline and text with multiple attribute classes
+            <em-text class="bigText redText greenBackground">
+                em-section backgrund set inline<br />
+                em-text with multiple classes defined.
             </em-text>
         </em-section>
 
