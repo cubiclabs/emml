@@ -1,0 +1,51 @@
+<em-eml>
+	<em-body>
+		<em-section background-url="https://picsum.photos/600/400?grayscale"
+			background-color="#aaaaaa"
+			height="400px"
+			valign="middle">
+			<em-text align="center"
+				padding="20px 20px" 
+				font-weight="bold" 
+				font-size="28px">
+				Hello<br />There
+			</em-text>
+			<em-button href="https://www.google.com">Test Button</em-button>
+		</em-section>
+		
+		<em-divider />
+		
+		<em-section background-url="https://picsum.photos/600/200?grayscale"
+			background-size="cover"
+			background-color="#aaaaaa"
+			outlook-bg-width="600px"
+			outlook-bg-height="200px">
+			<em-text align="center" 
+				padding="20px 20px" 
+				font-weight="bold" 
+				font-size="28px">
+				Hello<br />There
+			</em-text>
+		</em-section>
+		
+		<em-divider />
+		
+		<em-section background-url="https://picsum.photos/600/200?grayscale"
+			background-size="cover"
+			background-color="#ff0000"
+			outlook-nobgimage="true">
+			<em-text align="center" 
+				padding="20px 20px" 
+				font-weight="bold" 
+				font-size="28px"> 
+				Not for outlook
+			</em-text>
+		</em-section>
+		
+		<em-section>
+			<em-text>Image Tag:</em-text>
+			<em-image src="https://picsum.photos/600/200?grayscale" />
+		</em-section>
+
+	</em-body>
+</em-eml>

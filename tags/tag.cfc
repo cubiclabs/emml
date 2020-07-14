@@ -119,7 +119,7 @@ component{
 	/**
 	* @hint calculates the total width of any padding applied to this tag. This searches for padding and inner-padding attributes
 	*/
-	public numeric function paddingWidth(){
+	public numeric function paddingWidth(boolean includeInner=true){
 		local.pwl = 0;
 		local.pwr = 0;
 		if(len(trim(getAttribute('padding')))){
@@ -140,26 +140,76 @@ component{
 		local.p += len(getAttribute('padding-left')) ? val(getAttribute('padding-left')) : local.pwl;
 		local.p += len(getAttribute('padding-right')) ? val(getAttribute('padding-right')) : local.pwr;
 
-		local.pwl = 0;
-		local.pwr = 0;
-		if(len(trim(getAttribute('inner-padding')))){
-			local.pSplit = listToArray(trim(getAttribute('inner-padding')), " ");
+		if(arguments.includeInner){
+			local.pwl = 0;
+			local.pwr = 0;
+			if(len(trim(getAttribute('inner-padding')))){
+				local.pSplit = listToArray(trim(getAttribute('inner-padding')), " ");
+				if(arrayLen(local.pSplit) == 1){
+					local.pwl = val(local.pSplit[1]);
+					local.pwr = val(local.pSplit[1]);
+				}else if(arrayLen(local.pSplit) == 2){
+					local.pwl = val(local.pSplit[2]);
+					local.pwr = val(local.pSplit[2]);
+				}else if(arrayLen(local.pSplit) == 4){
+					local.pwr = val(local.pSplit[2]);
+					local.pwl = val(local.pSplit[4]);
+				}
+			}
+
+			//local.p = 0;
+			local.p += len(getAttribute('inner-padding-left')) ? val(getAttribute('inner-padding-left')) : local.pwl;
+			local.p += len(getAttribute('inner-padding-right')) ? val(getAttribute('inner-padding-right')) : local.pwr;
+		}
+
+		return local.p;
+	}
+
+	/**
+	* @hint calculates the total height of any padding applied to this tag. This searches for padding and inner-padding attributes
+	*/
+	public numeric function paddingHeight(boolean includeInner=true){
+		local.pht = 0;
+		local.phb = 0;
+		if(len(trim(getAttribute('padding')))){
+			local.pSplit = listToArray(trim(getAttribute('padding')), " ");
 			if(arrayLen(local.pSplit) == 1){
-				local.pwl = val(local.pSplit[1]);
-				local.pwr = val(local.pSplit[1]);
+				local.pht = val(local.pSplit[1]);
+				local.phb = val(local.pSplit[1]);
 			}else if(arrayLen(local.pSplit) == 2){
-				local.pwl = val(local.pSplit[2]);
-				local.pwr = val(local.pSplit[2]);
+				local.pht = val(local.pSplit[1]);
+				local.phb = val(local.pSplit[1]);
 			}else if(arrayLen(local.pSplit) == 4){
-				local.pwr = val(local.pSplit[2]);
-				local.pwl = val(local.pSplit[4]);
+				local.pht = val(local.pSplit[1]);
+				local.phb = val(local.pSplit[3]);
 			}
 		}
 
-		//local.p = 0;
-		local.p += len(getAttribute('inner-padding-left')) ? val(getAttribute('inner-padding-left')) : local.pwl;
-		local.p += len(getAttribute('inner-padding-right')) ? val(getAttribute('inner-padding-right')) : local.pwr;
+		local.p = 0;
+		local.p += len(getAttribute('padding-top')) ? val(getAttribute('padding-top')) : local.pht;
+		local.p += len(getAttribute('padding-bottom')) ? val(getAttribute('padding-bottom')) : local.phb;
 
+		if(arguments.includeInner){
+			local.pht = 0;
+			local.phb = 0;
+			if(len(trim(getAttribute('inner-padding')))){
+				local.pSplit = listToArray(trim(getAttribute('inner-padding')), " ");
+				if(arrayLen(local.pSplit) == 1){
+					local.pht = val(local.pSplit[1]);
+					local.phb = val(local.pSplit[1]);
+				}else if(arrayLen(local.pSplit) == 2){
+					local.pht = val(local.pSplit[1]);
+					local.phb = val(local.pSplit[1]);
+				}else if(arrayLen(local.pSplit) == 4){
+					local.pht = val(local.pSplit[1]);
+					local.phb = val(local.pSplit[3]);
+				}
+			}
+
+			//local.p = 0;
+			local.p += len(getAttribute('inner-padding-top')) ? val(getAttribute('inner-padding-top')) : local.pht;
+			local.p += len(getAttribute('inner-padding-bottom')) ? val(getAttribute('inner-padding-bottom')) : local.phb;
+		}
 
 		return local.p;
 	}

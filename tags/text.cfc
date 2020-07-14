@@ -28,6 +28,7 @@ component extends="tag"{
 				'height': getAttribute('height')
 			},
 			td: {
+				'background-color': getAttribute('background-color'),
 				'border': getAttribute('border'),
 				'border-bottom': getAttribute('border-bottom'),
 				'border-left': getAttribute('border-left'),

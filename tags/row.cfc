@@ -3,11 +3,14 @@ component extends="tag"{
 	variables._defaultAttributes = {
 		'background-repeat': 'repeat',
 		'background-size': 'auto',
+		'backgrouond-position': 'top center',
 		'direction': 'ltr',
 		'padding': '20px 0',
 		'text-align': 'left',
 		'text-padding': '4px 4px 4px 0',
-		'section': false
+		'section': false,
+		'valign': 'top',
+		'outlook-nobgimage': false
  	};
 	
  	public boolean function isFullWidth(){
@@ -20,20 +23,27 @@ component extends="tag"{
 
 	public struct function getStyles(){
 
+		local.tdHeight = getAttribute('height');
+		if(len(local.tdHeight) AND right(local.tdHeight, 2) IS "px"){
+			local.tdHeight = val(local.tdHeight) - paddingHeight();
+			local.tdHeight &= "px";
+		}
+
 		local.background = len(getAttribute('background-url')) ? 
+			//getBackgroundDefinition() : 
 			{
 				'background': getBackgroundString()
-			} : 
+			} :
 			{
 				'background': getAttribute('background-color'),
-				'background-color': getAttribute('background-color'),
+				'background-color': getAttribute('background-color')
 			};
 
 		local.ret = {
 			tableFullwidth: {
 				//...(fullWidth ? background : {}),
 				'width': '100%',
-				'border-radius': getAttribute('border-radius'),
+				'border-radius': getAttribute('border-radius')
 			},
 			table: {
 				//...(fullWidth ? {} : background),
@@ -55,18 +65,48 @@ component extends="tag"{
 				'padding-left': getAttribute('padding-left'),
 				'padding-right': getAttribute('padding-right'),
 				'padding-top': getAttribute('padding-top'),
-				'text-align': getAttribute('text-align')//,
-				//'height': '100%'
+				'text-align': getAttribute('text-align'),
+				'height': local.tdHeight
 			},
 			div: {
 				//...(fullWidth ? {} : background),
 				'margin': '0px auto',
 				'border-radius': getAttribute('border-radius'),
-				'max-width': getContainerWidth(),
+				'max-width': getContainerWidth()
 			},
 			innerDiv: {
 				'line-height': '0',
-				'font-size': '0',
+				'font-size': '0'
+			},
+			outlookBGTable: {
+				'border-collapse': 'collapse',
+				'width': len(getAttribute('outlook-bg-width')) ? getAttribute('outlook-bg-width') : getContainerWidth(),
+				'height': len(getAttribute('outlook-bg-height')) ? getAttribute('outlook-bg-height') : getAttribute('height')
+			},
+			outlookBGTd: {
+				'width': len(getAttribute('outlook-bg-width')) ? getAttribute('outlook-bg-width') : getContainerWidth(),
+				'height': len(getAttribute('outlook-bg-height')) ? getAttribute('outlook-bg-height') : getAttribute('height')
+			},
+			outlookBGImage: {
+				'behavior': 'url(##default##VML)',
+				'display': 'inline-block',
+				'position': 'absolute',
+				'width': len(getAttribute('outlook-bg-width')) ? getAttribute('outlook-bg-width') : getContainerWidth(),
+				'height': len(getAttribute('outlook-bg-height')) ? getAttribute('outlook-bg-height') : getAttribute('height'),
+				'top': '0',
+				'left': '0',
+				'border': '0',
+				'z-index': '1'
+			},
+			outlookBGRect: {
+				'display': 'inline-block',
+				'position': 'absolute',
+				'width': len(getAttribute('outlook-bg-width')) ? getAttribute('outlook-bg-width') : getContainerWidth(),
+				'height': len(getAttribute('outlook-bg-height')) ? getAttribute('outlook-bg-height') : getAttribute('height'),
+				'top': '0',
+				'left': '0',
+				'border': '0',
+				'z-index': '2'
 			}
 		};
 
@@ -92,6 +132,8 @@ component extends="tag"{
 		}", "em-height100", "sm");
 	}
 
+	// backround shorthand css is required in order to support GANGA (Gmail App for Non Google Accounts)
+	// https://freshinbox.com/blog/gmail-imap-ganga-finally-supports-background-images/
 	public string function getBackgroundString(){
 		local.str = [getAttribute('background-color')];
 		if(hasBackground()){
@@ -102,26 +144,40 @@ component extends="tag"{
 		return arrayToList(local.str, " ");
 	}
 
+	public struct function getBackgroundDefinition(){
+		local.ret = {};
+		local.ret["backgrouond-color"] = getAttribute('background-color');
+
+		if(hasBackground()){
+			local.ret["backgrouond-image"] = "url('" & getAttribute('background-url') & "')";
+			local.ret["backgrouond-position"] = getAttribute('background-position');
+			local.ret["backgrouond-size"] = getAttribute('background-size');
+			local.ret["backgrouond-repeat"] = getAttribute('background-repeat');
+		}
+		return local.ret;
+	}
+
 
 	public string function renderBefore() {
     
 		return '
 			<!--[if mso | IE]>
 				<table #htmlAttributes({
-						'align': 'center',
-						'border': '0',
-						'cellpadding': '0',
-						'cellspacing': '0',
-						'role': 'presentation',
-						'addclass': getAttribute('css-class') & ' outlook',
-						'style': {
-							'width': getContainerWidth(),
-							'height': '1px',
-						},
-						'width': val(getContainerWidth()),
-					})#>
-					<tr style="height:100%">
-						<td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;height:100%">
+					'align': 'center',
+					'border': '0',
+					'cellpadding': '0',
+					'cellspacing': '0',
+					'role': 'presentation',
+					'addclass': getAttribute('css-class') & ' outlook',
+					'style': {
+						'width': getContainerWidth(),
+						'height': '1px'
+					},
+					'width': val(getContainerWidth()),
+					'bgcolor': getAttribute('background-color')
+				})#>
+				<tr style="height:100%">
+					<td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;height:100%">
 			<![endif]-->';
 	}
 
@@ -181,9 +237,11 @@ component extends="tag"{
     `,
       })}
       */
-  }
+	}
 
-	public string function renderWithBackground(content){
+
+	// NOTE: this does not render in the Windows 10 Mail client
+	public string function __renderWithBackground(content){
 		
 		return '			
 			<!--[if mso | IE]>
@@ -204,7 +262,7 @@ component extends="tag"{
 						'type': 'tile'
 					})# />
 					
-        			<v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+					<v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
 						<![endif]-->
 							#arguments.content#
 						<!--[if mso | IE]>
@@ -213,11 +271,48 @@ component extends="tag"{
 			<![endif]-->';
 	}
 
+	public string function renderWithBackground(content){
+
+		if(isBoolean(getAttribute('outlook-nobgimage')) AND getAttribute('outlook-nobgimage')){
+			return arguments.content;
+		}
+		
+		return '
+			<!--[if gte mso 9]>
+				<table #htmlAttributes({
+					'style': 'outlookBGTable',
+					'role': 'presentation',
+					'border': '0',
+					'cellpadding': '0',
+					'cellspacing': '0'
+				})#>
+				<tr><td #htmlAttributes({'style': 'outlookBGTd'})#>
+				<v:image #htmlAttributes({
+					'style': 'outlookBGImage',
+					'xmlns:v': 'urn:schemas-microsoft-com:vml',
+					'src': len(getAttribute('outlook-bg-url')) ? getAttribute('outlook-bg-url') : getAttribute('background-url')
+				})# />				
+				<v:rect #htmlAttributes({
+					'style': 'outlookBGRect',
+					'xmlns:v': 'urn:schemas-microsoft-com:vml',
+					'fill': 'true',
+					'stroke': 'false'
+				})#>
+					<v:fill opacity="0%" style="z-index: 1;" />
+					<div>            
+			<![endif]--> 
+				#arguments.content#
+			<!--[if gte mso 9]>
+				</div></v:fill></v:rect>
+				</td></tr></table>
+			<![endif]-->';
+	}
+
 	public string function renderSection(){
 		return '
 			<div #htmlAttributes({
 				'class': isFullWidth() ? "" : getAttribute('css-class'),
-				'style': 'div',
+				'style': 'div'
 			})#>
 			#hasBackground() ? "<div #htmlAttributes({'style': 'innerDiv'})#>" : ""#
 			<table #htmlAttributes({
@@ -229,14 +324,15 @@ component extends="tag"{
 					'cellpadding': '0',
 					'cellspacing': '0',
 					'role': 'presentation',
-					'style': 'table',
+					'style': 'table'
 				})#>
 				<tbody class="em-height100">
 					<tr class="em-height100">
 						<td #htmlAttributes({
 								'align': 'left',
 								'style': 'td',
-								'class': 'em-height100'
+								'class': 'em-height100',
+								'valign': getAttribute('valign')
 							})#>
 							#renderWrappedChildren()#
 							
@@ -254,7 +350,7 @@ component extends="tag"{
 			: 
 			renderBefore() & renderSection() & renderAfter();
 
-		return "
+		return '
 			<table #htmlAttributes({
 					//'align': 'center',
 					'class': getAttribute('css-class'),
@@ -263,16 +359,16 @@ component extends="tag"{
 					'cellpadding': '0',
 					'cellspacing': '0',
 					'role': 'presentation',
-					'style': 'tableFullwidth',
+					'style': 'tableFullwidth'
 				})#>
 				<tbody>
 					<tr>
-						<td>
+						<td style="position:relative;">
 							#local.content#
 						</td>
 					</tr>
 				</tbody>
-			</table>";
+			</table>';
 	}
 
 	public string function renderSimple(){
