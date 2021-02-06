@@ -1,0 +1,348 @@
+<em-eml>
+	<em-head>
+		<em-title>Email title here</em-title>
+		<em-preview>Preview text here</em-preview>
+		<em-attributes>
+			<em-row background-color="white" padding="0 10px" />
+			<em-section background-color="white" padding="0 10px" />
+			<em-text 
+				color="#444444" 
+				font-family="arial" 
+				font-size="16px" 
+				line-height="150%"
+				padding="10px 0" />
+			<em-button 
+				background-color="#444444" 
+				color="#ffffff" 
+				font-size="16px" 
+				font-weight="bold"
+				border-radius="50px"
+				inner-padding="23px 42px" 
+				padding="20px" />
+			<em-class name="heading" 
+				font-size="24px" 
+				line-height="140%" 
+				color="#1f1f1f"
+				css-class="heading" />
+			<em-class name="bodytext" 
+				font-size="19px" 
+				line-height="140%" 
+				color="#444444"
+				css-class="bodyText" />
+			<em-class name="groupheading" 
+				border-left="6px solid #0099ff"
+				text-transform="uppercase"
+				font-weight="bold"
+				font-size="14px"
+				padding="0 0 0 16px" 
+				line-height="16px" />
+			<em-class name="storyheading" 
+				font-weight="bold"
+				font-size="18px"
+				color="#191919" 
+				line-height="130%" 
+				css-class="storyLink" 
+				padding="10px 0 8px 0" />
+			<em-class name="storytext"
+				padding="0" /> 
+			<em-class name="imageright"
+				align="right" 
+				padding="8px 0 10px 20px" 
+				max-width="40%" />
+		</em-attributes>
+		<em-style inline="true">
+			.headerLink{
+				color: #ffffff;
+				display: inline-block;
+				text-decoration: none;
+			}
+			.defaultLink{
+				color: #0099ff;
+				text-decoration: underline;
+			}
+			.storyLink{
+				color: #191919;
+				text-decoration: none;
+			}
+			.noWrap{
+				white-space: nowrap;
+			}
+			p{
+				margin: 0 0 20px 0;
+				padding: 0;
+			}
+			ol,ul{
+				margin: 0 0 20px 0;
+			}
+			a{
+				color: #0099ff;
+				text-decoration: underline;
+			}
+		</em-style>
+		<em-style>
+			.storyLink:hover{
+				text-decoration: underline !important;
+			}
+		</em-style>
+		<em-style type="lg">
+
+		</em-style>
+		<em-style type="sm">
+			.notMobile{
+				display: none;
+			}
+			.headerCell{
+				width: 80px !important;
+			}
+			.headerLink{
+				font-size: 14px !important;
+			}
+			.heading{
+				font-size: 21px !important;
+			}
+			.footerText{
+				font-size: 16px !important;
+			}
+			.storyLink{
+				font-size: 21px !important;
+			}
+		</em-style>
+	</em-head>
+	<em-body background-color="#ffffff">
+		<!-- header start -->
+		<em-section padding="0">
+			<em-table background-color="#191919">
+				<tr>
+					<em-td padding="0 10px">
+						<a href="https://www.cubicstate.com" target="_blank">
+							<img src="https://www.cubicstate.com/images/email/logo.gif" alt="CUBICstate" style="color:#ffffff; display:block; border:0" />
+						</a>
+					</em-td>
+					<em-td width="200px"
+						align="right"
+						vertical-align="middle"
+						css-class="headerCell">
+						<em-text
+							align="right"
+							color="#ffffff"
+							font-size="12px"
+							padding="0 20px 0 0">
+							<a href="https://www.cubicstate.com" target="_blank" class="headerLink">View <span class="notMobile">this email</span> in <span class="notMobile">your</span> browser</a>
+						</em-text>
+					</em-td>
+				</tr>
+			</em-table>
+		</em-section>
+		<!-- header end -->
+		
+		<em-section padding="0">
+			<em-image src="https://www.cubicstate.com/images/email/placeholder-pic-header.png" 
+				full-width="full-width" 
+				padding-bottom="20px"/>
+		</em-section>
+		<em-section>
+			<em-text class="heading">
+				News introduction
+			</em-text>
+			<em-text class="bodytext">
+				<p>
+					This is an intro. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+				</p>
+			</em-text>
+		
+			<em-table>
+				<tr>
+					<em-td width="80px" font-size="0px">
+						<em-image align="left"
+							padding-right="10px"
+							src="https://www.cubicstate.com/images/email/placeholder-person-icon.png" />
+					</em-td>
+					<em-td>
+						<em-text font-size="16px">
+							Dave Jenkins<br />
+							Important job role
+						</em-text>
+					</em-td>
+				</tr>
+			</em-table>
+			<em-spacer height="40px" />
+		</em-section>
+		
+		<em-section padding="0px 0px 30px 0">
+			<em-column inner-padding="10px">
+				<em-image 
+					src="https://www.cubicstate.com/images/email/placeholder-pic-aside.png" 
+					full-width="full-width" />
+			</em-column>
+			<em-column inner-padding="10px">
+				<em-image 
+					src="https://www.cubicstate.com/images/email/placeholder-pic-aside.png" 
+					full-width="full-width" 
+					css-class="notMobile" />
+			</em-column>
+			<em-column inner-padding="10px">
+				<em-image 
+					src="https://www.cubicstate.com/images/email/placeholder-pic-aside.png" 
+					full-width="full-width" />
+			</em-column>
+		</em-section>
+		
+		
+		
+		<em-section>
+			<em-divider border-color="#dddddd" padding="10px 0" width="50%" />
+			<em-spacer height="40px" />
+			<em-text class="groupheading">Blogs</em-text>
+			<em-spacer height="10px" />
+			<em-text class="storyheading">
+				<a href="https://www.cubicstate.com" class="storyLink">Nunc et urna viverra, ‘efficitur’ urna etbed</a>
+			</em-text>
+			<em-text class="storytext">
+				<p>Ut vel sollicitudin lectus, in posuere enim. Suspendisse tristique risus id odio euismod, quis eleifend turpis interdum.</p>
+			</em-text>
+			<em-text class="storyheading">
+				<a href="https://www.cubicstate.com" class="storyLink">Praesent molestie molestie enim, quis tristique urna</a>
+			</em-text>
+			<em-text class="storytext">
+				<em-image class="imageright" src="https://www.cubicstate.com/images/email/placeholder-pic-aside.png" />
+				Sed pellentesque tellus ac nulla porttitor, at ultrices nunc ornare. Vivamus convallis elementum est semper convallis. Cras tempus vitae mi non elementum. In risus leo, semper vitae odio quis, feugiat consequat odio. Praesent at tristique neque, non finibus dolor.<br /><br />
+				Another paragraph in here.<br /><br />
+				<em-table>
+					<tr>
+						<em-td width="15px">
+							<em-text class="storytext">&#8226;</em-text>
+						</em-td>
+						<em-td>
+							<em-text class="storytext">
+								<a href="https://www.cubicstate.com/">Link title here</a>	
+							</em-text>
+						</em-td>
+					</tr>
+					<tr>
+						<em-td width="15px">
+							<em-text class="storytext">&#8226;</em-text>
+						</em-td>
+						<em-td>
+							<em-text class="storytext">
+								<a href="https://www.cubicstate.com/">One more link title here</a>	
+							</em-text>
+						</em-td>
+					</tr>
+					<tr>
+						<em-td width="15px">
+							<em-text class="storytext">&#8226;</em-text>
+						</em-td>
+						<em-td>
+							<em-text class="storytext">
+								<a href="https://www.cubicstate.com/">Another link title here</a>	
+							</em-text>
+						</em-td>
+					</tr>
+				</em-table>
+				<em-spacer height="25px" />
+			</em-text>
+			
+			
+			<em-text class="storyheading">
+				<a href="https://www.cubicstate.com" class="storyLink">This is a story link with no body</a>
+			</em-text>
+			<em-spacer height="20px" />
+			
+			<em-text class="storyheading">
+				<a href="https://www.cubicstate.com" class="storyLink">Integer eros sapien, bibendum non quam in, tristique eleifend eros</a>
+			</em-text>
+			<em-text class="storytext">
+				<p>Praesent molestie molestie enim, quis tristique urna. Ut venenatis odio ut leo posuere dignissim. Quisque volutpat blandit tortor, a ultricies arcu vulputate a.</p>
+			</em-text>
+			
+		</em-section>
+		
+		<em-section>
+			<em-spacer height="20px" />
+			<em-text class="groupheading">Articles</em-text>
+			<em-spacer height="10px" />
+			<em-text class="storyheading">
+				<a href="https://www.cubicstate.com" class="storyLink">In pretium auctor nunc quis consectetur</a>
+			</em-text>
+			<em-text class="storytext">
+				<p>Maecenas egestas, purus a pellentesque auctor, odio felis lacinia leo, at rutrum purus nulla eget orci. Sed ac rhoncus risus, at pulvinar nisl.</p>
+			</em-text>
+		</em-section>
+		
+		<em-section>
+			<em-spacer height="20px" />
+			<em-text class="groupheading">Lunch and learn online events - book now</em-text>
+			<em-spacer height="10px" />
+			<em-text class="storyheading">
+				<a href="https://www.cubicstate.com" class="storyLink">Nunc et urna viverra, efficitur urna et, posuere nunc. Ut vel sollicitudin lectus, in posuere enim</a>
+			</em-text>
+			<em-text class="storytext">
+				<p>12 April 12.30 - 1.30pm</p>
+			</em-text>
+			
+			<em-button href="https://www.cubicstate.com">This is a sample button</em-button>
+		</em-section>
+		
+		
+
+		<!-- footer start -->
+		<em-section padding-top="40px" padding-bottom="20px" background-color="#ffffff">
+			<em-text align="center" font-size="14px" css-class="footerText">
+				Received this email from a friend? <a href="https://www.cubicstate.com" target="_blank" class="defaultLink noWrap">Sign up here</a>
+			</em-text>
+		</em-section>
+		<em-section padding-top="30px" padding-bottom="20px" background-color="#ebf5fa">
+			<em-table>
+				<tr>
+					<em-td>&nbsp;</em-td>
+					<em-td width="80px">
+						<em-image 
+							src="https://www.cubicstate.com/images/email/footer-facebook.png" 
+							alt="Facebook" 
+							href="http://www.facebook.com/"
+							padding="5px" />
+					</em-td>
+					<em-td width="80px">
+						<em-image 
+							src="https://www.cubicstate.com/images/email/footer-twitter.png" 
+							alt="Twitter" 
+							href="https://twitter.com/"
+							padding="5px" />
+					</em-td>
+					<em-td width="80px">
+						<em-image 
+							src="https://www.cubicstate.com/images/email/footer-youtube.png" 
+							alt="YouTube" 
+							href="https://www.youtube.com/"
+							padding="5px" />
+					</em-td>
+					<em-td width="80px">
+						<em-image 
+							src="https://www.cubicstate.com/images/email/footer-linkedin.png" 
+							alt="LinkedIn" 
+							href="https://www.linkedin.com/"
+							padding="5px" />
+					</em-td>
+					<em-td>&nbsp;</em-td>
+				</tr>
+			</em-table>
+			<em-text
+				css-class="footerText"
+				align="center"
+				font-size="14px"
+				line-height="150%"
+				padding="20px 4% 0 4%">
+				This email was sent to jimmy@email.com. You are receiving this email because you registered on <a href="https://www.cubicstate.com" target="_blank" class="defaultLink"><span class="noWrap">Company Name</span></a><br /><br />
+				<a href="https://www.cubicstate.com" target="_blank" class="defaultLink">Add us to your address book</a><br /><br />
+				<a href="https://www.cubicstate.com" target="_blank" class="defaultLink">Unsubscribe</a><br /><br />
+				<div style="color:#0099ff">
+					Company Name<br />
+					19 Windsor St, London, <span class="noWrap">NW1 2PE</span><br />
+					<a href="mailto:info@domain.com" class="defaultLink">info@domain.com</a>
+				</div>
+			</em-text>
+		</em-section>
+		<!-- footer end -->
+
+	</em-body>
+</em-eml>
