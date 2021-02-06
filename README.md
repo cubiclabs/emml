@@ -13,8 +13,8 @@ You need to create an instance of the emlParser.cfc. This should be treated as a
 
 `eml = new emlParser( [configuration] );`
 
-### Configuration
-`configuration` is an optional struct that can be used to configure certain aspects of the email render. Default values are:
+### Optional arguments
+* `configuration` _struct default=see below_: a struct of configuration options used to configure certain aspects of the email render. Default values are:
 
 ```
 {
@@ -34,7 +34,7 @@ eml = new eml.emlParser({
 });
 ```
 
-| Key | Default | Notes |
+| Property | Default | Notes |
 | :-------- | :------ | :---- |
 | breakPoint | 480 | The width in pixels that the css breakpoint occurs |
 | compressCSS | true | If set to true, the CSS gets compressed when the rendered output is minified |
