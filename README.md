@@ -38,7 +38,7 @@ eml = new eml.emlParser({
 | :-------- | :------ | :---- |
 | breakPoint | 480 | The width in pixels that the css breakpoint occurs |
 | compressCSS | true | If set to true, the CSS gets compressed when the rendered output is minified |
-| containerWidth| 600 | The width in pixels of the main container element of the rendered output |
+| containerWidth| 600 |  The width in pixels used for the default width of the `em-body` tag |
 | customTagPath|  | A path to a directory that contains custom tags. This path should either use a mapping or be relative to the application context root |
 | lineLength| 500 | The target line length used when the rendered output is minified |
 
