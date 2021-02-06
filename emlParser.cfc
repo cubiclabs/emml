@@ -5,6 +5,14 @@ component{
 
 	// https://jsoup.org/
 	// https://github.com/serg472/htmlcompressor
+	variables._config = {
+		baseColour: "##ffffff",
+		breakPoint: 480,
+		containerWidth: 600,
+		customTagPath: "",
+		lineLength: 500,
+		compressCSS: true
+	}
 
 	variables._crlf = chr(13) & chr(10); // CRLF shorthand
 	variables._jsoup = ""; // cached jsoup reference
@@ -43,7 +51,8 @@ component{
 	* @hint constructor
 	*/
 	public any function init(struct config={}){
-		configure(arguments.config);
+		structAppend(variables._config, arguments.config);
+		//configure(arguments.config);
 		return this;
 	}
 
@@ -61,20 +70,7 @@ component{
 		return variables;
 	}
 
-	/**
-	* @hint configures our instance by reading our default include and extending it using configuration passed in
-	*/
-	public void function configure(struct config={}){
-		
-		include template="config/default-config.cfm";
-
-		variables._config = {};
-		if(structKeyExists(arguments.config, "config")){
-			structAppend(variables._config, arguments.config.config);
-		}
-		structAppend(variables._config, variables._defaultConfig, false);
-	}
-
+	
 	/**
 	* @hint attempts to validate a given string as EMML
 	*/
