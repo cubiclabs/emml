@@ -1,4 +1,4 @@
-## emml
+## About
 
 This project started as a basic ColdFusion port of the [mjml project](https://mjml.io/).
 
@@ -11,7 +11,37 @@ Adobe ColdFusion is not currently supported, but in theory could be if internal 
 ## The emlParser object
 You need to create an instance of the emlParser.cfc. This should be treated as a transient object - you need to create a new object for each email that you want to render.
 
-`eml = new emlParser();`
+`eml = new emlParser( [configuration] );`
+
+### Configuration
+`configuration` is an optional struct that can be used to configure certain aspects of the email render. Default values are:
+
+```
+{
+   breakPoint: 480,
+   compressCSS: true,
+   containerWidth: 600,
+   customTagPath: "",
+   lineLength: 500
+}
+```
+
+For example:
+```
+eml = new eml.emlParser({
+   breakPoint: 400,
+   containerWidth: 700
+});
+```
+
+| Key | Default | Notes |
+| :-------- | :------ | :---- |
+| breakPoint | 480 | The width in pixels that the css breakpoint occurs |
+| compressCSS | true | If set to true, the CSS gets compressed when the rendered output is minified |
+| containerWidth| 600 | The width in pixels of the main container element of the rendered output |
+| customTagPath|  | A path to a directory that contains custom tags. This path should either use a mapping or be relative to the application context root |
+| lineLength| 500 | The target line length used when the rendered output is minified |
+
 
 ## Rendering an email
 To generate the HTML for your email, call the `toHTML()` method:
