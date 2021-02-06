@@ -78,6 +78,7 @@ The following tags are available:
 * [em‐attributes](https://github.com/cubiclabs/emml/wiki/em‐attributes)
 * [em-body](https://github.com/cubiclabs/emml/wiki/em‐body)
 * [em-button](https://github.com/cubiclabs/emml/wiki/em‐button)
+* [em-class](https://github.com/cubiclabs/emml/wiki/em‐class)
 * [em-column](https://github.com/cubiclabs/emml/wiki/em‐column)
 * [em-divider](https://github.com/cubiclabs/emml/wiki/em‐divider)
 * [em-eml](https://github.com/cubiclabs/emml/wiki/em‐eml)
