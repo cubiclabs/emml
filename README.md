@@ -1,12 +1,12 @@
 ## About
 
-This project started as a basic ColdFusion port of the [mjml project](https://mjml.io/).
+This project started as a basic ColdFusion port of the [mjml project](https://mjml.io/). There are many similarities between thie and mjml and many of the tags are the same. However, there are also differences in some tags and rendered output.
 
 It is used to parse a simple email markup language to simplify the process of creating responsive email templates that look great in as many email clients as possible - both mobile and desktop.
 
 It currently supports Lucee 4.5+.
 
-Adobe ColdFusion is not currently supported, but in theory could be if internal changes are made to use [JavaLoader](https://github.com/markmandel/JavaLoader) initiate required Java classes.
+Adobe ColdFusion is not currently supported, but in theory could be if internal changes are made to use [JavaLoader](https://github.com/markmandel/JavaLoader) to initiate the required Java classes.
 
 ## The emlParser object
 You need to create an instance of the emlParser.cfc. This should be treated as a transient object - you need to create a new object for each email that you want to render.
@@ -69,6 +69,7 @@ The emlParser is expecting a string comprised of 'em' tags that make up an email
 </em-eml>
 ```
 
+You can try the `<em>` markup using our [simple editor](https://www.cubicstate.com/emml/) that gives a preview of the HTML output.
 
 
 
