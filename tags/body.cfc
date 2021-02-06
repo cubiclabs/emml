@@ -1,7 +1,7 @@
 component extends="tag"{
 
 	variables._defaultAttributes = {
-		'width': '600px'
+		//'width': '600px'
 	};
 	
 	public string function getContainerWidth(){
