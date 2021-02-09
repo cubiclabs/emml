@@ -84,6 +84,14 @@
 				text-decoration: underline !important;
 			}
 		</em-style>
+		<em-style type="outlook">
+			.headerLink{
+				text-decoration: underline !important;
+			}
+			.storyLink{
+				text-decoration: underline !important;
+			}
+		</em-style>
 		<em-style type="lg">
 
 		</em-style>
@@ -168,7 +176,7 @@
 			<em-spacer height="40px" />
 		</em-section>
 		
-		<em-section padding="0px 0px 30px 0">
+		<em-row padding="0px 0px 30px 0">
 			<em-column inner-padding="10px">
 				<em-image 
 					src="https://www.cubicstate.com/images/email/placeholder-pic-aside.png" 
@@ -185,7 +193,7 @@
 					src="https://www.cubicstate.com/images/email/placeholder-pic-aside.png" 
 					full-width="full-width" />
 			</em-column>
-		</em-section>
+		</em-row>
 		
 		
 		
