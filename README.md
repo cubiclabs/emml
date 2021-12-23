@@ -86,6 +86,7 @@ The following tags are available:
 * [em-head](https://github.com/cubiclabs/emml/wiki/em‐head)
 * [em-hspace](https://github.com/cubiclabs/emml/wiki/em‐hspace)
 * [em-image](https://github.com/cubiclabs/emml/wiki/em‐image)
+* [em-include](https://github.com/cubiclabs/emml/wiki/em‐include)
 * [em-preview](https://github.com/cubiclabs/emml/wiki/em‐preview)
 * [em-row](https://github.com/cubiclabs/emml/wiki/em‐row)
 * [em-section](https://github.com/cubiclabs/emml/wiki/em‐section)
