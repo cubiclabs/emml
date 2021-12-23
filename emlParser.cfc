@@ -11,7 +11,8 @@ component{
 		containerWidth: 600,
 		customTagPath: "",
 		lineLength: 500,
-		compressCSS: true
+		compressCSS: true,
+		allowIncludes: true
 	}
 
 	variables._crlf = chr(13) & chr(10); // CRLF shorthand
@@ -111,7 +112,9 @@ component{
 		}
 
 		// handle any 'include' tags
-		arguments.input = doIncludes(arguments.input);
+		if(config("allowIncludes")){
+			arguments.input = doIncludes(arguments.input);
+		}
 
 		// escape non em- tags
 		local.escaped = escapeHTML(arguments.input);
@@ -147,7 +150,9 @@ component{
 		}
 
 		// handle any 'include' tags
-		arguments.input = doIncludes(arguments.input);
+		if(config("allowIncludes")){
+			arguments.input = doIncludes(arguments.input);
+		}
 
 		// escape non em- tags
 		local.escaped = escapeHTML(arguments.input);

@@ -36,6 +36,7 @@ eml = new eml.emlParser({
 
 | Property | Default | Notes |
 | :-------- | :------ | :---- |
+| allowIncludes | true | Set to `false` to disable the `em-include` tag |
 | breakPoint | 480 | The width in pixels that the css breakpoint occurs |
 | compressCSS | true | If set to true, the CSS gets compressed when the rendered output is minified |
 | containerWidth| 600 |  The width in pixels used for the default width of the `em-body` tag |
