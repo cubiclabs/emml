@@ -12,8 +12,9 @@ component extends="tag"{
 
 	public struct function getStyles(){
 
-		return {
-			text: {
+		return [
+			text: [
+				'mso-line-height-rule': 'exactly',
 				'border-collapse': 'collapse',
 				'font-family': getAttribute('font-family'),
 				'font-size': getAttribute('font-size'),
@@ -26,8 +27,8 @@ component extends="tag"{
 				'text-transform': getAttribute('text-transform'),
 				'color': getAttribute('color'),
 				'height': getAttribute('height')
-			},
-			td: {
+			],
+			td: [
 				'background-color': getAttribute('background-color'),
 				'border': getAttribute('border'),
 				'border-bottom': getAttribute('border-bottom'),
@@ -42,8 +43,8 @@ component extends="tag"{
 				'text-align': getAttribute('align'),
 				'height': getAttribute('height'),
 				'vertical-align': 'top'
-			}
-		};
+			]
+		];
 	}
 
 	public string function renderText(){

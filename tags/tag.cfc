@@ -91,9 +91,9 @@ component{
 	/**
 	* @hint returns our outer width
 	*/
-	public string function getOuterWidth(){
+	public string function getOuterWidth(string w=getAttribute('width')){
 		local.outerWidth = val(getContainerWidth());
-		local.w = trim(getAttribute('width'));
+		local.w = trim(arguments.w);
 		if(len(local.w)){
 			if(right(local.w, 1) IS "%"){
 				local.outerWidth = (local.outerWidth/100) * val(local.w);
@@ -112,8 +112,8 @@ component{
 	/**
 	* @hint returns our inner width - width excluding padding
 	*/
-	public string function getInnerWidth(){
-		return (val(getOuterWidth()) - paddingWidth()) & "px";
+	public string function getInnerWidth(string w=getAttribute('width')){
+		return (val(getOuterWidth(arguments.w)) - paddingWidth()) & "px";
 	}
 
 	/**
@@ -431,7 +431,7 @@ component{
 	public struct function parseStyle(any styles){
 		if(!isStruct(arguments.styles)){
 			if(len(arguments.styles)){
-				arguments.styles = {"template":arguments.styles};
+				arguments.styles = ["template":arguments.styles];
 			}else{
 				return {};
 			}
@@ -443,6 +443,13 @@ component{
 			for(local.templateKey in local.templateKeys){
 				local.template = getStyle(local.templateKey);
 				if(isStruct(local.template)){
+
+					/*for(local.key in local.template){
+						if(!structKeyExists(arguments.styles, local.key)){
+							arguments.styles[local.key] = local.template[local.key];
+						}
+					}*/
+
 					structAppend(arguments.styles, parseStyle(local.template), false);
 				}
 

@@ -6,6 +6,7 @@ component extends="tag"{
 		'height': 'auto',
 		'target': '_blank',
 		'font-size': '13px',
+		'text-render': 'false'
 		//'background-color': '##ffffff'
 	};
 
@@ -24,7 +25,8 @@ component extends="tag"{
 				'display': 'block',
 				'outline': 'none',
 				'text-decoration': 'none',
-				'height': getAttribute('height'),
+				//'height': getAttribute('height'),
+				'height': 'auto',
 				'max-height': getAttribute('max-height'),
 				'min-width': fullWidth ? '100%' : '',
 				'width': fullWidth ? '100%': '',
@@ -44,7 +46,8 @@ component extends="tag"{
 				'min-width': fullWidth ? '100%' : '',
 				'max-width': fullWidth ? '100%' : getAttribute('max-width'),
 				'width': fullWidth ? getAttribute('width') : '',
-				'border-spacing': '0px'
+				'border-spacing': '0px',
+				'mso-hide': getAttribute('outlook-hidden') == "outlook-hidden" ? 'all' : ''
 			}
 		};
 	}
@@ -130,18 +133,22 @@ component extends="tag"{
 	
 
 	public string function renderText(){
-		local.img = "[" & getAttribute('src') & "]";
-		local.alt = getAttribute('alt');
-		local.href = getAttribute('href');
+		if(getAttribute("text-render") == "true"){
+			local.img = "[" & getAttribute('src') & "]";
+			local.alt = getAttribute('alt');
+			local.href = getAttribute('href');
 
-		if(len(local.alt)){
-			local.img &= " (" & local.alt & ")";
+			if(len(local.alt)){
+				local.img &= " (" & local.alt & ")";
+			}
+
+			if(len(local.href)){
+				local.img &= " [" & local.href & "]";
+			}
+
+			return local.img;
+		}else{
+			return "";
 		}
-
-		if(len(local.href)){
-			local.img &= " [" & local.href & "]";
-		}
-
-		return local.img;
 	}
 }

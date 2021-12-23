@@ -11,6 +11,9 @@ component extends="tag"{
 				'height': getAttribute('height')
 			},
 			table: {
+				'mso-hide': getAttribute('outlook-hidden') == "outlook-hidden" ? 'all' : ''
+			},
+			td: {
 				'vertical-align': 'top',
 				'height': getAttribute("height"),
 				'font-size': '0px',
@@ -22,11 +25,14 @@ component extends="tag"{
 	public string function render(){
 		local.height = getAttribute("height");
 
-		return '<table role="presentation" border="0" cellpadding="0" cellspacing="0">
+		return '<table role="presentation" border="0" cellpadding="0" cellspacing="0"#htmlAttributes({
+					'addclass': getAttribute('css-class'),
+					'style': 'table'
+					})#>
 			<tr><td#htmlAttributes({
 					'height': val(local.height),
 					'aria-hidden': 'true',
-					'style': 'table',
+					'style': 'td'
 					})#>&nbsp;</td></tr></table>';
 		/*
 		return conditional('<table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td#htmlAttributes({

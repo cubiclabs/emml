@@ -22,7 +22,9 @@ component extends="tag"{
 				'color': getAttribute('color'),
 				'background-color': getAttribute('background-color'),
 				'width': getAttribute('width'),
-				'border': getAttribute('border')
+				'border': getAttribute('border'),
+				'border-spacing': getAttribute('border-spacing'),
+				'mso-hide': getAttribute('outlook-hidden') == "outlook-hidden" ? 'all' : ''
 			}
 		};
 	}

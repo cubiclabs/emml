@@ -32,12 +32,12 @@ component extends="tag"{
 			}			
 		}
 
-		return "<body#local.bodyAttr#>
+		return "<body#local.bodyAttr#><!--[if mso]><div class=""mso""><![endif]-->
 			#local.preview#
 			<div#local.bodyAttr#>
 				#getChildContent()#
 			</div>
-		</body>";
+		<!--[if mso]></div><![endif]--></body>";
 	}
 
 	

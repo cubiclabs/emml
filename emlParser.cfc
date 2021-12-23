@@ -110,6 +110,9 @@ component{
 			return local.validated.err;
 		}
 
+		// handle any 'include' tags
+		arguments.input = doIncludes(arguments.input);
+
 		// escape non em- tags
 		local.escaped = escapeHTML(arguments.input);
 
@@ -143,6 +146,9 @@ component{
 			return local.validated.err;
 		}
 
+		// handle any 'include' tags
+		arguments.input = doIncludes(arguments.input);
+
 		// escape non em- tags
 		local.escaped = escapeHTML(arguments.input);
 
@@ -155,6 +161,51 @@ component{
 
 		return local.txt;
 	}
+
+	/**
+	* @hint perform includes
+	*/
+	public string function doIncludes(string input){
+		local.includeRegEx = "<em-include (.*[^\/])?\/?>";
+
+		var attributePattern = CreateObject(
+			"java",
+			"java.util.regex.Pattern"
+			).Compile(
+				"(\w+)(?:\s*=\s*(""[^""]*""|[^\s]*))?"
+				);
+
+		return jreReplace(arguments.input, local.includeRegEx, function($0, attributes, start, targetText){
+			local.attr = {
+				template: ""
+			};
+
+			local.attributeMatcher = attributePattern.Matcher(arguments.attributes);
+
+			while(local.attributeMatcher.Find()){
+				local.name = local.attributeMatcher.Group( 1 );
+				local.attr[local.name] = "";
+
+				local.value = local.attributeMatcher.Group( 2 );
+				if(structKeyExists(local, "value")){
+					local.value = local.value.ReplaceAll("^""|""$", "" );
+					local.attr[local.name] = local.value;
+				}
+
+			}
+
+			if(len(local.attr.template)){
+				savecontent variable="local.templateInclude"{
+					include template="#local.attr.template#";
+				}
+				return local.templateInclude;
+			}
+
+
+			return "";
+		});
+	}
+
 
 	/**
 	* @hint escapes any non em- tags
@@ -412,7 +463,7 @@ component{
 	* @hint parses a CSS rule into individual styles
 	*/
 	public struct function parseStyles(string input){
-		local.styles = {};
+		local.styles = structNew("linked");
 		local.split = listToArray(arguments.input, ";");
 		for(local.pair in local.split){
 			local.splitPair = listToArray(local.pair, ":");
@@ -781,6 +832,83 @@ component{
 		}
 
 		return local.out;
+	}
+
+	/**
+	 * https://www.bennadel.com/blog/3322-jregex-a-coldfusion-wrapper-around-javas-regular-expression-patterns.htm
+	* I use Java's Pattern / Matcher libraries to replace matched patterns using the
+	* given operator function or closure.
+	*
+	* @targetText I am the text being scanned.
+	* @patternText I am the Java Regular Expression pattern used to locate matches.
+	* @operator I am the Function or Closure used to provide the match replacements.
+	* @output false
+	*/
+	public string function jreReplace(
+		required string targetText,
+		required string patternText,
+		required function operator
+		) {
+
+		var matcher = createObject( "java", "java.util.regex.Pattern" )
+			.compile( javaCast( "string", patternText ) )
+			.matcher( javaCast( "string", targetText ) );
+		var buffer = createObject( "java", "java.lang.StringBuffer" ).init();
+
+		// Iterate over each pattern match in the target text.
+		while ( matcher.find() ) {
+
+			// When preparing the arguments for the operator, we need to construct an
+			// argumentCollection structure in which the argument index is the numeric
+			// key of the argument offset. In order to simplify overlaying the pattern
+			// group matching over the arguments array, we're simply going to keep an
+			// incremented offset every time we add an argument.
+			var operatorArguments = {};
+			var operatorArgumentOffset = 1; // Will be incremented with each argument.
+
+			var groupCount = matcher.groupCount();
+
+			// NOTE: Calling .group(0) is equivalent to calling .group(), which will
+			// return the entire match, not just a capturing group.
+			for ( var i = 0 ; i <= groupCount ; i++ ) {
+
+				operatorArguments[ operatorArgumentOffset++ ] = matcher.group( javaCast( "int", i ) );
+
+			}
+
+			// Including the match offset and the original content for parity with the
+			// JavaScript String.replace() function on which this algorithm is based.
+			// --
+			// NOTE: We're adding 1 to the offset since ColdFusion starts offsets at 1
+			// where as Java starts offsets at 0.
+			operatorArguments[ operatorArgumentOffset++ ] = ( matcher.start() + 1 );
+			operatorArguments[ operatorArgumentOffset++ ] = targetText;
+
+			var replacement = operator( argumentCollection = operatorArguments );
+
+			// In the event the operator doesn't return a value, we'll assume that the
+			// intention is to replace the match with nothing.
+			if ( isNull( replacement ) ) {
+
+				replacement = "";
+
+			}
+
+			// Since the operator is providing the replacement text based on the
+			// individual parts found in the match, we are going to assume that any
+			// embedded group reference is coincidental and should be consumed as a
+			// string literal.
+			matcher.appendReplacement(
+				buffer,
+				matcher.quoteReplacement( javaCast( "string", replacement ) )
+			);
+
+		}
+
+		matcher.appendTail( buffer );
+
+		return( buffer.toString() );
+
 	}
 	
 }

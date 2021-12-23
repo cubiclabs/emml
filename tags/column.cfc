@@ -76,7 +76,7 @@ component extends="tag"{
 				'font-size': '0px',
 				'text-align': 'left',
 				'direction': getAttribute('direction'),
-				'display': 'inline-block',
+				'display': getAttribute('display', 'inline-block'),
 				'vertical-align': getAttribute('vertical-align'),
 				'width': getColumnWidth(),
 				//'min-height': "100%"
@@ -97,7 +97,7 @@ component extends="tag"{
 				//'padding-left': getAttribute('padding-left'),
 				//'vertical-align': getAttribute('vertical-align'),
 				'vertical-align': 'top',
-				'width': getOuterWidth()
+				'width': getOuterWidth(len(getAttribute('outlook-width')) ? getAttribute('outlook-width') : getAttribute('width'))
 			},
 			table: {
 				'background-color': getAttribute('inner-background-color'),

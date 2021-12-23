@@ -50,7 +50,8 @@ component extends="tag"{
 				'border-collapse': 'collapse',
 				'width': '100%',
 				'border-radius': getAttribute('border-radius'),
-				'height': '1px'
+				'height': '1px',
+				'mso-hide': getAttribute('outlook-hidden') == "outlook-hidden" ? 'all' : ''
 			},
 			td: {
 				'border': getAttribute('border'),
@@ -171,7 +172,8 @@ component extends="tag"{
 					'addclass': getAttribute('css-class') & ' outlook',
 					'style': {
 						'width': getContainerWidth(),
-						'height': '1px'
+						'height': '1px',
+						'mso-hide': getAttribute('outlook-hidden') == "outlook-hidden" ? 'all' : ''
 					},
 					'width': val(getContainerWidth()),
 					'bgcolor': getAttribute('background-color')
@@ -198,7 +200,15 @@ component extends="tag"{
 
 		if(isBoolean(getAttribute("section")) AND !getAttribute("section")){
 			local.outlookOpen = '<!--[if mso | IE]>
-				<table role="presentation" border="0" cellpadding="0" cellspacing="0">
+				<table #htmlAttributes({
+					'border': '0',
+					'cellpadding': '0',
+					'cellspacing': '0',
+					'role': 'presentation',
+					'style': {
+						'mso-hide': getAttribute('outlook-hidden') == "outlook-hidden" ? 'all' : ''
+					}
+				})#>
 				<tr>
 			<![endif]-->';
 
