@@ -298,7 +298,7 @@ component{
 	public any function getAttribute(string key, any default=""){
 		// attrbiute value set
 		if(structKeyExists(variables._attributes, arguments.key)){
-			return variables._attributes[arguments.key];
+			return context().unescapeHTML(variables._attributes[arguments.key]);
 		}
 
 		if(hasNode()){
