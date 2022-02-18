@@ -468,7 +468,7 @@ component{
 	* @hint parses a CSS rule into individual styles
 	*/
 	public struct function parseStyles(string input){
-		local.styles = structNew("linked");
+		local.styles = structNew("ordered");
 		local.split = listToArray(arguments.input, ";");
 		for(local.pair in local.split){
 			local.splitPair = listToArray(local.pair, ":");

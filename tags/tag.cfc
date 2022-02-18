@@ -431,7 +431,9 @@ component{
 	public struct function parseStyle(any styles){
 		if(!isStruct(arguments.styles)){
 			if(len(arguments.styles)){
-				arguments.styles = ["template":arguments.styles];
+				local.styleStruct = structNew("ordered");
+				local.styleStruct["template"] = arguments.styles;
+				arguments.styles = local.styleStruct;
 			}else{
 				return {};
 			}

@@ -14,6 +14,10 @@ component extends="tag"{
 		return {
 			td: {
 				'border': getAttribute('border'),
+				'border-top': getAttribute('border-top'),
+				'border-right': getAttribute('border-right'),
+				'border-bottom': getAttribute('border-bottom'),
+				'border-left': getAttribute('border-left'),
 				'color': getAttribute('color'),
 				'text-align': getAttribute('align'),
 				'background-color': getAttribute('background-color'),

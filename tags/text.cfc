@@ -11,40 +11,40 @@ component extends="tag"{
 
 
 	public struct function getStyles(){
+		local.styles = structNew("ordered");
+		local.styles["text"] = structNew("ordered");
+		local.styles["td"] = structNew("ordered");
 
-		return [
-			text: [
-				'mso-line-height-rule': 'exactly',
-				'border-collapse': 'collapse',
-				'font-family': getAttribute('font-family'),
-				'font-size': getAttribute('font-size'),
-				'font-style': getAttribute('font-style'),
-				'font-weight': getAttribute('font-weight'),
-				'letter-spacing': getAttribute('letter-spacing'),
-				'line-height': getAttribute('line-height'),
-				'text-align': getAttribute('align'),
-				'text-decoration': getAttribute('text-decoration'),
-				'text-transform': getAttribute('text-transform'),
-				'color': getAttribute('color'),
-				'height': getAttribute('height')
-			],
-			td: [
-				'background-color': getAttribute('background-color'),
-				'border': getAttribute('border'),
-				'border-bottom': getAttribute('border-bottom'),
-				'border-left': getAttribute('border-left'),
-				'border-right': getAttribute('border-right'),
-				'border-top': getAttribute('border-top'),
-				'padding': getAttribute('padding'),
-				'padding-bottom': getAttribute('padding-bottom'),
-				'padding-left': getAttribute('padding-left'),
-				'padding-right': getAttribute('padding-right'),
-				'padding-top': getAttribute('padding-top'),
-				'text-align': getAttribute('align'),
-				'height': getAttribute('height'),
-				'vertical-align': 'top'
-			]
-		];
+		local.styles.text['mso-line-height-rule'] = 'exactly';
+		local.styles.text['border-collapse'] = 'collapse';
+		local.styles.text['font-family'] = getAttribute('font-family');
+		local.styles.text['font-size'] = getAttribute('font-size');
+		local.styles.text['font-style'] = getAttribute('font-style');
+		local.styles.text['font-weight'] = getAttribute('font-weight');
+		local.styles.text['letter-spacing'] = getAttribute('letter-spacing');
+		local.styles.text['line-height'] = getAttribute('line-height');
+		local.styles.text['text-align'] = getAttribute('align');
+		local.styles.text['text-decoration'] = getAttribute('text-decoration');
+		local.styles.text['text-transform'] = getAttribute('text-transform');
+		local.styles.text['color'] = getAttribute('color');
+		local.styles.text['height'] = getAttribute('height');
+		
+		local.styles.td['background-color'] = getAttribute('background-color');
+		local.styles.td['border'] = getAttribute('border');
+		local.styles.td['border-bottom'] = getAttribute('border-bottom');
+		local.styles.td['border-left'] = getAttribute('border-left');
+		local.styles.td['border-right'] = getAttribute('border-right');
+		local.styles.td['border-top'] = getAttribute('border-top');
+		local.styles.td['padding'] = getAttribute('padding');
+		local.styles.td['padding-bottom'] = getAttribute('padding-bottom');
+		local.styles.td['padding-left'] = getAttribute('padding-left');
+		local.styles.td['padding-right'] = getAttribute('padding-right');
+		local.styles.td['padding-top'] = getAttribute('padding-top');
+		local.styles.td['text-align'] = getAttribute('align');
+		local.styles.td['height'] = getAttribute('height');
+		local.styles.td['vertical-align'] = 'top';
+		
+		return local.styles;
 	}
 
 	public string function renderText(){
