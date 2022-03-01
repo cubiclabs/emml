@@ -34,9 +34,9 @@ component extends="tag"{
 
 		return "<body#local.bodyAttr#><!--[if mso]><div class=""mso""><![endif]-->
 			#local.preview#
-			<div#local.bodyAttr#>
+			<table width=""100%"" cellpadding=""0"" cellspacing=""0""><tr><td#local.bodyAttr#>
 				#getChildContent()#
-			</div>
+			</td></tr></table>
 		<!--[if mso]></div><![endif]--></body>";
 	}
 
