@@ -19,7 +19,8 @@ component{
 	variables._jsoup = ""; // cached jsoup reference
 	variables._jsoupJarPath = "java/jsoup-1.13.1.jar"; // path to jsoup jar
 	variables._compressorJarPath = ["java/htmlcompressor-1.5.3.jar","java/yuicompressor-2.4.6.jar"]; // path to HTML compressor jar
-	
+	variables._version = "1.1.2";
+
 	// named css snippets
 	variables._css = {
 		"any": {},
